@@ -1,7 +1,7 @@
 from django.shortcuts import get_object_or_404, redirect, render
 from django.db.models import Q
 
-from .models import PersonStatus
+from .models import PersonStatus, Person, PersonForm
 
 def index(request):
 	return render(request, 'portal/index.html')
@@ -11,12 +11,13 @@ def add_person(request):
     # if request.method == 'POST':
         # ...
         # return redirect('portal:index')
-    return render(request, 'portal/add_person.html')
+    personform = PersonForm()
+    return render(request, 'portal/add_person.html', {'personform' : personform})
 
 
 def show_person(request, person_id):
-    # ... 
-    pass
+    person = Person.objects.get(pk=person_id)
+    return render(request, 'portal/person.html', {'person' : person})
 
 
 def show_safe_persons(request):
