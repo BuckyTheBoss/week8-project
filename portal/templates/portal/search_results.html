@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}Search Persons{% endblock %}
+{% block content %}
+ <div class="container flex">
+ 	<div class="row">
+ 		<div class="col-2"></div>
+ 		<div class="col-8">
+ 			<h1>Search Person:<span class="h6"> "{{text}}"</span></h1>
+ 			<ul class="list-group">
+ 				
+ 			{% for person in results %}
+ 			<a href="{% url 'portal:person' person.id %}" class="list-group-item list-group-item-action">{{person.last_name}}, {{person.first_name}}</a>
+ 			{% endfor %}
+ 			
+ 			</ul>
+
+
+
+ 		</div>
+ 		<div class="col-2"></div>
+ 		
+ 	</div>
+ 	
+
+ </div>
+
+{% endblock %}

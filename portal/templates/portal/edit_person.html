@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}Add Person{% endblock %}
+{% block title %}Edit Person{% endblock %}
 {% block content %}
 	<div class="container flex">
 		<div class="row">
@@ -8,61 +8,61 @@
 				
 				
 				
-				<h1> Add Person</h1>
+				<h1> Edit Person</h1>
 				<form method="post" class="container flex"> {% csrf_token %}
 					<div class="form-group row">
 						<label class="col-2 col-form-label" for="id_first_name">First name:</label>
 						<div class="col-10">
-							<input type="text" name="first_name" maxlength="200" required id="id_first_name">
+							<input type="text" name="first_name" maxlength="200" required id="id_first_name" value="{{personform.first_name.value}}">
 						</div>
 					</div>
 					<div class="form-group row">
 						<label class="col-2 col-form-label" for="id_last_name">Last name:</label>
 						<div class="col-10">
-							<input type="text" name="last_name" maxlength="200" required id="id_last_name">
+							<input type="text" name="last_name" maxlength="200" required id="id_last_name" value="{{personform.last_name.value}}">
 						</div>
 					</div>
 					<div class="form-group row">
 						<label class="col-2 col-form-label" for="id_other_name">Other name:</label>
 						<div class="col-10">
-							<input type="text" name="other_name" maxlength="200" required id="id_other_name">
+							<input type="text" name="other_name" maxlength="200" required id="id_other_name"value="{{personform.other_name.value}}">
 						</div>
 					</div>
 					<div class="form-group row">
 						<label class="col-2 col-form-label" for="id_id_number">Id number:</label>
 						<div class="col-10">
-							<input type="text" name="id_number" maxlength="11" required id="id_id_number">
+							<input type="text" name="id_number" maxlength="11" required id="id_id_number" value="{{personform.id_number.value}}">
 						</div>
 					</div>
 					<div class="form-group row">
 						<label class="col-2 col-form-label" for="id_mobile">Mobile:</label>
 						<div class="col-10">
-							<input type="text" name="mobile" maxlength="12" required id="id_mobile">
+							<input type="text" name="mobile" maxlength="12" required id="id_mobile" value="{{personform.mobile.value}}">
 						</div>
 					</div>
 					<div class="form-group row">
 						<label class="col-2 col-form-label" for="id_email">Email:</label>
 						<div class="col-10">
-							<input type="email" name="email" maxlength="50" required id="id_email">
+							<input type="email" name="email" maxlength="50" required id="id_email" value="{{personform.email.value}}">
 						</div>
 					</div>
 					<div class="form-group row">
 						<label class="col-2 col-form-label" for="id_description">Description:</label>
 						<div class="col-10">
-							<input type="text" name="description" maxlength="200" required id="id_description">
+							<input type="text" name="description" maxlength="200" required id="id_description" value="{{personform.description.value}}">
 						</div>
 					</div>
 					<div class="form-group row">
 						<label class="col-2 col-form-label" for="id_status">Status:</label>
 						<div class="col-10">
-							<select name="status" required id="id_status">
-								<option value="" selected>---------</option>
+							<select name="status" required id="id_status" value="{{personform.status.value}}">
+								<option value="">---------</option>
 								<option value="7">missing</option>
 								<option value="8">safe</option>
 							</select>
 						</div>
 					</div>
-					<button class="btn btn-secondary" type="submit" >Add</button>
+					<button class="btn btn-secondary" type="submit">Edit</button>
 				</form>
 			</div>
 			<div class="col-2"></div>
