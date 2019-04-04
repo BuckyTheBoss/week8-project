@@ -13,7 +13,7 @@ def add_person(request):
         person.save()
         return redirect('portal:index')
     personform = PersonForm()
-    return render(request, 'portal/add_person.html', {'personform' : personform})
+    return render(request, 'portal/add_person.html', {'personform' : personform, 'title': 'Add Person', 'button':'Add'})
 
 
 def show_person(request, person_id):
@@ -30,7 +30,6 @@ def show_safe(request):
 
 
 def search_person(request):
-    context = None
     if request.method != 'POST':
         return redirect('portal:index')
 
@@ -51,4 +50,4 @@ def edit_person(request,person_id):
         edited_person.save()
         return redirect('portal:index')
     personform = PersonForm(instance=person)
-    return render(request, 'portal/edit_person.html', {'personform' : personform,})
+    return render(request, 'portal/add_person.html', {'personform' : personform, 'title': 'Edit Person', 'button':'Edit'})
